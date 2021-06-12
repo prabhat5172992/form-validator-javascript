@@ -53,12 +53,19 @@ function removesChildNodes(parent) {
   if(el) el.remove();
 }
 
+function resetBorderColor() {
+  fields.forEach((item) => {
+    document.getElementById(item).style.border = "1px solid rgb(94, 93, 93)";
+  });
+}
+
 function checkAllFields(currEle) {
   const erBox = document.getElementById('err-container');
   const errWrap = document.createElement('div');
   errWrap.id = 'err-wrap';
   errors = [], errMsg={};
   removesChildNodes(erBox);
+  resetBorderColor();
   let param2 = currEle ? map[currEle.id] : fields.length;
 
   fields.slice(0, param2).forEach((item) => {
